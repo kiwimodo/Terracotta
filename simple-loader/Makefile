@@ -26,7 +26,7 @@ $(BUILDDIR)/$(TARGET): $(OBJECTS)
 	$(CC) -o $@ $< -lrt -ldl
 
 $(OBJECTS): $(SOURCES) $(BUILDDIR)/$(BLOB)
-	$(CC) -c $(CFLAGS) -I./$(BUILDDIR) $< -o $@
+	$(CC) -c $(CFLAGS) $(MACRO) -I./$(BUILDDIR) $< -o $@
 
 $(BUILDDIR)/$(BLOB):
 	echo "#ifndef blob_h__\n#define blob_h__\n\n" >> $@
